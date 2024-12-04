@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio02</title>
+</head>
+<body>
+    <a href="index.html">INDEX</a><br>
+    <a href="/exer01.html">EJERCICIO01</a><br>
+    <form id="formulario">
+        <input type="email" id="email"><br><br>
+        <input type="password" id="pass"><br><br>
+        <button type="button" id="button" disabled>Enviar</button>
+    </form>
+    <script>
+        const validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const validarPass = /^.{8,10}$/;
+
+        let emailCorrec = false;
+        let passCorrec = false;
+
+        let emailInput = document.getElementById("email");
+        let passInput = document.getElementById("pass");
+        let submitButton = document.getElementById("button");
+
+        emailInput.addEventListener('blur', () => {
+            let email = emailInput.value;
+            if (validarEmail.test(email)) {
+                emailCorrec = true;
+            } else {
+                emailCorrec = false;
+            }
+            habilitarBoton(); 
+        });
+        passInput.addEventListener('blur', () => {
+            let pass = passInput.value;
+            if (validarPass.test(pass)) {
+                passCorrec = true;
+            } else {
+                passCorrec = false;
+            }
+            habilitarBoton(); 
+        });
+        function habilitarBoton() {
+            if (emailCorrec && passCorrec) {
+                submitButton.disabled = false; 
+            } else {
+                submitButton.disabled = true; 
+            }
+        }
+    </script>
+</body>
+</html>

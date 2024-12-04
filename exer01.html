@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio01</title>
+    <link rel="stylesheet"  href="style/style.css">
+</head>
+<body>
+    <a href="/index.html">INDEX</a><br>
+    <a href="/exer02.html">EJERCICIO02</a><br>
+    <div id="image">
+        <h1>Pulsa CTROL + E para cambiar la imagen de fondo</h1>
+    </div>
+    <script>
+
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && event.key === "e") {
+                const imageDiv = document.getElementById("image");
+                imageDiv.style.backgroundImage = "url(https://picsum.photos/200/300)";
+                /* document.body.style.backgroundSize = "cover"; */
+            }
+        });
+
+    </script>
+</body>
+</html>
